@@ -53,4 +53,28 @@ res/values路径为默认值资源路径分别存储颜色`colors.xml`，主题`
 > 冷知识：XML 声明`<?xml version="1.0" encoding="utf-8"?>`是可选声明但为什么就只有strings.xml文件经常“没有” 因为最早 Android 官方示例里的 strings.xml它是最常被人手写、复制、翻译的文件少一行：不容易被翻译人员误删，不影响可读性，更不容易引起编码问题。久而久之，成了习惯。而themes / colors 常常“有”？文件更像“工程文件”，基本只由程序员维护，IDE 自动生成 / 重写。  
 
 ### 确定数据类型与存储模式
+启用room数据库（`./app/build.gradle.kts`）[[参考](https://developer.android.com/training/data-storage/room?hl=zh-cn#kts)]:
+```kts
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+    //room扩展启用
+    alias(libs.plugins.ksp)
+}
 
+//...
+
+dependencies {
+    implementation(libs.androidx.core.ktx)
+
+    //...
+    
+    //设置room数据库
+    val room_version = "2.8.4"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
+}
+```
