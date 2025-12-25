@@ -116,7 +116,7 @@ app/
 `RoomDatabase`本身是 抽象类，无法直接实例化。Room 需要生成一个 实现类。   
 + `entity`：存储数据结构
 + `dao`：存储数据操作接口
-+ `AppDatabase.kt`: 是数据库的抽象接口，所以说在这个基础上还需要实现具体的数据库类
-`AppDatabase` 本身不做业务操作，它只是“把 `DAO` 和 `Entity` 连接起来”；真正的操作发生在 DAO，DAO 的操作对象是 Entity。
++ `AppDatabase.kt`: 是数据库的抽象接口，所以说在这个基础上还需要实现具体的数据库类。`AppDatabase` 本身不做业务操作，它只是“把 `DAO` 和 `Entity` 连接起来”；真正的操作发生在 DAO，DAO 的操作对象是 Entity。
++ `Repository`：是使用封装后的数据库类。
 
-
+### Ui
